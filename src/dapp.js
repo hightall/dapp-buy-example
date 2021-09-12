@@ -19,6 +19,6 @@ export const reloadDapp = async (onEnabled) => {
   if (dapp.currentAccount && dapp.currentAccount.address) {
     window.dapp = dapp;
     const balance = await dapp.getBalance(dapp.currentAccount.address, window.racaAddress, v2Abi, 18);
-    window.balance = balance;
+    localStorage.setItem('balance', balance)
   }
 }

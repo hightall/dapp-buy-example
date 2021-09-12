@@ -31,6 +31,8 @@ function App() {
     if (dapp.currentAccount && dapp.currentAccount.address) {
       window.dapp = dapp;
       localStorage.setItem('connect-method', connectMethod);
+      const balance = await dapp.getBalance(dapp.currentAccount.address, window.racaAddress, v2Abi, 18);
+      localStorage.setItem('balance', balance)
       window.location.reload();
     }
   }
@@ -64,12 +66,16 @@ function App() {
     }
   }
   const address = localStorage.getItem('account-address')
+  const balance = localStorage.getItem('balance')
   return (
     <div className="App">
       <header className="App-header">
         {address ? <div>
           <div>
             {address}
+          </div>
+          <div>
+            {balance}
           </div>
           <div>
             <Button onClick={buy}>Buy now</Button>
