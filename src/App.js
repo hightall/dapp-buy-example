@@ -1,7 +1,12 @@
 import logo from './logo.svg';
+import { useMount } from 'ahooks';
 import './App.css';
+import {reloadDapp} from "./dapp";
 
 function App() {
+  useMount(() => {
+    reloadDapp();
+  })
   return (
     <div className="App">
       <header className="App-header">

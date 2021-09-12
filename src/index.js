@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+window.racaAddress = "0xC8C9b3749BE6F4C1170C3B0a4Ef530Ffa707bB28";
+window.networkEnv = "test";
 ReactDOM.render(
   <React.StrictMode>
     <App />
