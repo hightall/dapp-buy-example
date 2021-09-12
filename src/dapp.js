@@ -1,11 +1,13 @@
-import Dapp from "@hightall/dapp-lib"
+import Dapp from './lib/dapp'
+// import Dapp from '@hightall/dapp-lib';
 import v2Abi from "./abi/ERC20.json";
 
-export const reloadDapp = async () => {
+export const reloadDapp = async (onEnabled) => {
   if (window.dapp || !localStorage.getItem('account-address')) return;
-  const onDappEnabled = (account) => {
-    localStorage.setItem('account-address', account.address);
-  }
+  // const onDappEnabled = (account) => {
+  //   localStorage.setItem('account-address', account.address);
+  // }
+  const onDappEnabled = onEnabled;
   const connectMethod = localStorage.getItem('connect-method');
   const dapp = new Dapp(connectMethod);
   dapp.onEnabled((account) => onDappEnabled(account));

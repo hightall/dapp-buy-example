@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 window.racaAddress = "0xC8C9b3749BE6F4C1170C3B0a4Ef530Ffa707bB28";
 window.networkEnv = "test";
+window.buyTokenAddress = "0x876B23260fe3C874cd5BD083736DDcBD4EBEA8bf";
 ReactDOM.render(
   <React.StrictMode>
     <App />
