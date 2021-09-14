@@ -14,7 +14,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-core": "^6.26.3",
     "antd": "^4.16.13",
-    "@hightall/dapp-lib": "^1.1.2"
+    "@hightall/dapp-lib": "^1.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
