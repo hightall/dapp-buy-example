@@ -1,5 +1,6 @@
-import Dapp from './lib/dapp'
-// import Dapp from '@hightall/dapp-lib';
+// import Dapp from './lib/dapp'
+// import Dapp from './dapp-lib'
+import Dapp from '@hightall/dapp-lib';
 import v2Abi from "./abi/ERC20.json";
 
 export const reloadDapp = async (onEnabled) => {
@@ -9,7 +10,19 @@ export const reloadDapp = async (onEnabled) => {
   // }
   const onDappEnabled = onEnabled;
   const connectMethod = localStorage.getItem('connect-method');
-  const dapp = new Dapp(connectMethod);
+  const options = {
+    extension: connectMethod,
+  }
+  if (connectMethod === 'WalletConnect') {
+    options.providerOptions = {
+      rpc: {
+        97: 'https://data-seed-prebsc-2-s3.binance.org:8545/',
+        56: 'https://bsc-dataseed.binance.org/'
+      },
+      chainId: window.networkEnv === 'main' ? 56 : 97,
+    }
+  }
+  const dapp = new Dapp(options);
   dapp.onEnabled((account) => onDappEnabled(account));
   try {
     await dapp.enableBrowserExtension(window.networkEnv);
